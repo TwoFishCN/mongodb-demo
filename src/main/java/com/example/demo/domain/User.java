@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * Created by HeWei on 2017/7/18.
@@ -15,15 +16,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class Customer {
+public class User {
 
     @Id
-    private Integer id;
+    public Integer id;
 
-    private String firstName;
+    public String name;
 
-    private String lastName;
+    public String value;
 
-    private String description;
-
+    @DBRef
+    @Field
+    public Customer customer;
 }
